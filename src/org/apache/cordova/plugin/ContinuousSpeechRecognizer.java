@@ -1,4 +1,4 @@
-package me.bowarren.myapplication;
+package org.apache.cordova.plugin;
 
 /**
  * Created by adam on 2/26/16.

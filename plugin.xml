@@ -16,7 +16,6 @@
                 <param name="android-package" value="com.cte.plugin.speech.ContinuousSpeechRecognizer"/>
             </feature>
         </config-file>
-        <!--<header-file src="src/ios/CDVDevice.h" />-->
-        <source-file src="src/com/cte/plugin/speech/ContinuousSpeechRecognizer.java" />
+        <source-file src="ContinuousSpeechRecognizer.java" target-dir="src/com/cte/plugin/speech" />
     </platform>
 </plugin>

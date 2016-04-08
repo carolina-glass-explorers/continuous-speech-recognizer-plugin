@@ -1,0 +1,10 @@
+{
+    "org.apache.cordova.device": {
+        "source": {
+            "type": "local",
+            "path": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    }
+}

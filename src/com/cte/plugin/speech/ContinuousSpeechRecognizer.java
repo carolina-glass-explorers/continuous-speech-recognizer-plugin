@@ -1,4 +1,4 @@
-package org.apache.cordova.plugin;
+package com.cte.plugin.speech;
 
 /**
  * Created by adam on 2/26/16.

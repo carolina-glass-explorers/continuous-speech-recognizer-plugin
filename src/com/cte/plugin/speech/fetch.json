@@ -1,0 +1,10 @@
+{
+    "com.cte.plugin.speech": {
+        "source": {
+            "type": "local",
+            "path": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    }
+}

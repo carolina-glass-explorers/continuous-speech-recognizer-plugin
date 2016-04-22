@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="com/cte/plugin/speech/" version="0.2.3">
+        id="com.cte.plugin.speech" version="0.2.3">
     <name>Continuous Speech Recognizer</name>
     <description>Cordova Device Plugin</description>
     <license>Apache 2.0</license>

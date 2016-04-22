@@ -17,9 +17,15 @@ import org.json.JSONArray;
 import org.apache.cordova.*;
 import org.json.JSONException;
 
+import com.firebase.client.Firebase;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ContinuousSpeechRecognizer extends CordovaPlugin {
+
+    Firebase myFirebaseRef;
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
@@ -50,12 +56,15 @@ public class ContinuousSpeechRecognizer extends CordovaPlugin {
         public VoiceRecognitionListener(SpeechRecognizer recognizer, Intent intent){
             this.recognizer = recognizer;
             this.intent = intent;
+            Firebase.setAndroidContext(this.cordova.getActivity().getApplicationContext());
+            myFirebaseRef = new Firebase("https://live-captioning.firebaseio.com");            
         }
 
         public void onResults(Bundle data) {
             //Log.d(TAG, "onResults " + data);
             ArrayList<String> matches = data.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
             Log.e("ffff", matches.toString());
+            sendToFirebase(matches.toString());
             recognizeSpeech();
         }
 

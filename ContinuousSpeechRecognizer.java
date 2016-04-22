@@ -38,7 +38,7 @@ public class ContinuousSpeechRecognizer extends CordovaPlugin {
         intent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_MINIMUM_LENGTH_MILLIS, new Long(15000));
         intent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS, new Long(15000));
         intent.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_POSSIBLY_COMPLETE_SILENCE_LENGTH_MILLIS, new Long(15000));
-        SpeechRecognizer recognizer = SpeechRecognizer.createSpeechRecognizer(getApplicationContext());
+        SpeechRecognizer recognizer = SpeechRecognizer.createSpeechRecognizer(this.cordova.getActivity().getApplicationContext());
         recognizer.setRecognitionListener(new VoiceRecognitionListener(recognizer, intent));
         recognizer.startListening(intent);
     }
@@ -89,5 +89,14 @@ public class ContinuousSpeechRecognizer extends CordovaPlugin {
         public void onRmsChanged(float rmsdB) {
 //            Log.d(TAG, "onRmsChanged");
         }
+    }
+
+
+    private void sendToFirebase(String matches){
+        Firebase postRef = myFirebaseRef.child("new_posts");
+        Map<String, String> post = new HashMap<String, String>();
+        post.put("matches", matches);
+        post.put("time", ((Long) System.currentTimeMillis()).toString() );
+        postRef.push().setValue(post);
     }
 }
